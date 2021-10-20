@@ -6,9 +6,9 @@ describe('Handler test', () => {
     handler({}, {}, (err?: Error, resp?: any) => {
       if(err) {
         console.log('gets here');
-        done()
+        done();
       }
       done(new Error('Test should fail'));
-    })
-  })
+    });
+  });
 });
