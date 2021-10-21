@@ -1,6 +1,11 @@
 import { APIGatewayProxyHandler } from 'aws-lambda';
 import Honeybadger from '@honeybadger-io/js';
 
+Honeybadger.configure({
+  reportData: false,
+  environment: 'dev',
+  apiKey: 'dummy-key'
+});
 
 const handler: APIGatewayProxyHandler = async (event: any, context: any) => {
   try {
