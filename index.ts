@@ -2,14 +2,21 @@ import { APIGatewayProxyHandler } from 'aws-lambda';
 import Honeybadger from '@honeybadger-io/js';
 
 Honeybadger.configure({
-  reportData: false,
+  reportData: true,
   environment: 'dev',
   apiKey: 'dummy-key'
 });
 
+
 const handler: APIGatewayProxyHandler = async (event: any, context: any) => {
   try {
-    throw new Error('this is an error');
+    if(event.fail) {
+      throw new Error('this is an error');
+    }
+    return {
+      statusCode: 1,
+      body: 'something'
+    };
   } catch(err) {
     throw err;
   }
