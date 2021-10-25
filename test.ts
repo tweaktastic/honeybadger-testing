@@ -9,7 +9,7 @@ describe('Handler test', () => {
       await wrappedHandler({
         fail: 1
       }, {});
-      throw new Error('Should fail')
+      throw new Error('Should fail');
     } catch(err) {
       console.log(err);
     }
